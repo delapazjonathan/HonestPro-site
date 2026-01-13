@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pro Early Access - HonestPro</title>
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+</head>
+<body>
+  <div class="site">
+
+    <!-- Header (same pattern as your other pages) -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="logo">
+          <a href="../index.html" class="logo-link">
+            <span class="logo-mark">H</span>
+            <span class="logo-text">HonestPro</span>
+          </a>
+        </div>
+
+        <nav class="site-nav">
+          <a href="../index.html">Home</a>
+
+          <div class="nav-group">
+            <button class="nav-dropdown-toggle" type="button">For Customers</button>
+            <div class="nav-dropdown">
+              <a href="customers.html">Customer Hub</a>
+              <a href="how-it-works-customers.html">How It Works</a>
+              <a href="faq-customers.html">Customer FAQ</a>
+              <a href="find-a-pro.html">Find a Pro</a>
+            </div>
+          </div>
+
+          <div class="nav-group">
+            <button class="nav-dropdown-toggle" type="button">For Pros</button>
+            <div class="nav-dropdown">
+              <a href="pros.html">Pro Hub</a>
+              <a href="how-it-works-pros.html">How It Works</a>
+              <a href="pricing-pros.html">Pricing</a>
+              <a href="faq-pros.html">Pro FAQ</a>
+            </div>
+          </div>
+
+          <a href="reviews.html">Reviews</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+
+          <a href="login.html" class="btn btn-small">Login</a>
+        </nav>
+
+        <button class="mobile-nav-toggle" type="button">☰</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="section section-light">
+        <div class="container" style="max-width: 880px;">
+
+          <header style="margin-bottom: 1.5rem;">
+            <p class="eyebrow">Pro early access</p>
+            <h1 style="font-size: 1.85rem;">Get invited before leads go live</h1>
+            <p style="margin-top: 0.4rem; color: #4b5563; font-size: 0.93rem;">
+              Drop your info and we’ll reach out when your city is opening.
+              You’ll be able to set up your profile early and be first in line for leads.
+            </p>
+          </header>
+<!-- Thank you message (hidden by default) -->
+<div id="early-pro-success" style="display:none;">
+  <div class="form-card">
+    <h2>Thanks for signing up 🎉</h2>
+    <p style="margin-top:0.75rem;">
+      You’re officially on the HonestPro early access list.
+    </p>
+    <p style="margin-top:0.5rem; color:#4b5563;">
+      We’ll email you as soon as early access opens in your area.
+    </p>
+  </div>
+</div>
+
+          <form class="request-form" id="early-pro-form" onsubmit="return false;">
+            <div class="form-card">
+              <h2>Basic details</h2>
+              <p class="form-intro">This helps us confirm you’re a real business and match you to the right lead categories.</p>
+
+              <div class="form-grid">
+                <div class="form-group">
+                  <label class="form-label" for="business_name">Business name</label>
+                  <input class="form-input" id="business_name" name="business_name" type="text" />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="contact_name">Contact name</label>
+                  <input class="form-input" id="contact_name" name="contact_name" type="text" />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="email">Email *</label>
+                  <input class="form-input" id="email" name="email" type="email" required />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="phone">Phone (optional)</label>
+                  <input class="form-input" id="phone" name="phone" type="tel" />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="trade">Main trade</label>
+                  <select class="form-input form-select" id="trade" name="trade">
+                    <option value="">Select one</option>
+                    <option value="painting">Painting</option>
+                    <option value="cleaning">Cleaning</option>
+                    <option value="handyman">Handyman</option>
+                    <option value="detailing">Mobile detailing</option>
+                    <option value="yard">Yard / exterior</option>
+                    <option value="tutoring">Tutoring / lessons</option>
+                    <option value="tax">Tax / admin help</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="base_zip">Primary ZIP</label>
+                  <input class="form-input" id="base_zip" name="base_zip" type="text" />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="radius_miles">Service radius (miles)</label>
+                  <input class="form-input" id="radius_miles" name="radius_miles" type="number" min="1" step="1" />
+                </div>
+
+                <div class="form-group form-group-full">
+                  <label class="form-label" for="website">Website / social (optional)</label>
+                  <input class="form-input" id="website" name="website" type="url" placeholder="https:// or @handle" />
+                </div>
+
+                <div class="form-group form-group-full">
+                  <label class="form-label" for="notes">Anything we should know?</label>
+                  <textarea class="form-input form-textarea" id="notes" name="notes" rows="4"
+                    placeholder="What kind of jobs you want, availability, cities you serve, etc."></textarea>
+                </div>
+
+                <div class="form-group form-group-full" id="form-error" style="display:none; color:#b91c1c; font-size:0.95rem;"></div>
+                <div class="form-group form-group-full" id="form-success" style="display:none; color:#166534; font-size:0.95rem;"></div>
+              </div>
+
+              <div class="form-footer">
+                <button type="submit" class="btn" id="submit-btn">Join early access</button>
+                <p class="form-footer-note">
+                  We’ll only use this to contact you about HonestPro early access.
+                </p>
+              </div>
+            </div>
+          </form>
+
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-left">
+          <div class="logo footer-logo">
+            <span class="logo-mark">H</span>
+            <span class="logo-text">HonestPro</span>
+          </div>
+          <p style="margin-top:0.6rem; color:#cbd5e1; font-size:0.9rem;">
+            Built to be a calmer, fairer way to connect customers and pros.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+<link rel="stylesheet" href="/assets/css/styles.css" />
+
+<script src="/assets/js/main.js"></script>
+<script src="/assets/js/pages/pro-early-access.js"></script>
+
+
+
+</body>
+</html>
