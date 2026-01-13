@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - HonestPro</title>
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+  <div class="site">
+
+    <!-- Header -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="logo">
+          <a href="../index.html" class="logo-link">
+            <span class="logo-mark">H</span>
+            <span class="logo-text">HonestPro</span>
+          </a>
+        </div>
+
+        <nav class="site-nav">
+          <a href="../index.html">Home</a>
+
+          <div class="nav-group">
+            <button class="nav-dropdown-toggle" type="button">For Customers</button>
+            <div class="nav-dropdown">
+              <a href="customers.html">Customer Hub</a>
+              <a href="how-it-works-customers.html">How It Works</a>
+              <a href="faq-customers.html">Customer FAQ</a>
+              <a href="find-a-pro.html">Find a Pro</a>
+            </div>
+          </div>
+
+          <div class="nav-group">
+            <button class="nav-dropdown-toggle" type="button">For Pros</button>
+            <div class="nav-dropdown">
+              <a href="pros.html">Pro Hub</a>
+              <a href="how-it-works-pros.html">How It Works</a>
+              <a href="pricing-pros.html">Pricing</a>
+              <a href="faq-pros.html">Pro FAQ</a>
+            </div>
+          </div>
+
+          <a href="reviews.html">Reviews</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+
+          <a href="login.html" class="btn btn-small">Login</a>
+        </nav>
+
+        <button class="mobile-nav-toggle" type="button">☰</button>
+      </div>
+    </header>
+
+    <!-- Main content -->
+    <main>
+      <section class="section section-light">
+        <div class="container" style="max-width: 700px;">
+
+          <div style="text-align: center; margin-bottom: 2rem;">
+            <h1 style="font-size: 1.9rem;">Welcome back to HonestPro</h1>
+            <p style="color: #4b5563; margin-top: 0.4rem;">
+              Choose how you'd like to sign in. You can always switch between a customer
+              or pro account later.
+            </p>
+          </div>
+
+<!-- Login form -->
+<div class="form-card" style="max-width: 520px; margin: 0 auto;">
+  <h2 style="font-size: 1.1rem;">Sign in</h2>
+  <p class="form-intro">Use the email + password you used when you signed up.</p>
+
+  <form class="request-form" id="login-form" action="#" method="post">
+    <div class="form-grid">
+      <div class="form-group form-group-full">
+        <label class="form-label" for="login-email">Email</label>
+        <input class="form-input" type="email" id="login-email" autocomplete="email" required />
+      </div>
+
+      <div class="form-group form-group-full">
+        <label class="form-label" for="login-password">Password</label>
+        <input class="form-input" type="password" id="login-password" autocomplete="current-password" required />
+      </div>
+
+      <div class="form-group form-group-full">
+        <div id="login-error" style="display:none; margin-top: 0.25rem; color:#b91c1c; font-size:0.9rem;"></div>
+      </div>
+    </div>
+
+    <div class="form-footer">
+      <button type="submit" class="btn" id="login-submit">Log in</button>
+      <p class="form-footer-note">
+        New here?
+        <a href="customer-signup.html">Create customer account</a>
+        ·
+        <a href="pro-signup.html">Apply as a pro</a>
+      </p>
+    </div>
+  </form>
+</div>
+
+
+          </div>
+
+          <p style="text-align: center; margin-top: 1.5rem; font-size: 0.85rem; color: #6b7280;">
+            No account yet? You’ll create one automatically when continuing.
+          </p>
+
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-left">
+          <div class="logo footer-logo">
+            <span class="logo-mark">H</span>
+            <span class="logo-text">HonestPro</span>
+          </div>
+          <p>Fair leads. No spam. Built for long-term relationships.</p>
+        </div>
+
+        <div class="footer-columns">
+          <div class="footer-column">
+            <h3>Customers</h3>
+            <a href="customers.html">Customer Hub</a>
+            <a href="how-it-works-customers.html">How It Works</a>
+            <a href="faq-customers.html">Customer FAQ</a>
+            <a href="find-a-pro.html">Find a Pro</a>
+          </div>
+          <div class="footer-column">
+            <h3>Pros</h3>
+            <a href="pros.html">Pro Hub</a>
+            <a href="how-it-works-pros.html">How It Works</a>
+            <a href="pricing-pros.html">Pricing</a>
+            <a href="faq-pros.html">Pro FAQ</a>
+          </div>
+          <div class="footer-column">
+            <h3>Company</h3>
+            <a href="reviews.html">Reviews</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+          </div>
+          <div class="footer-column">
+            <h3>Legal</h3>
+            <a href="../legal/privacy.html">Privacy Policy</a>
+            <a href="../legal/terms.html">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+  <script src="./assets/js/api.js"></script>
+  <script src="./assets/js/auth.js"></script>
+  <script src="./assets/js/pages/login.js"></script>
+  <script src="./assets/js/main.js"></script>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
