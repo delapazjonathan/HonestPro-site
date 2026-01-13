@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Customer Settings - HonestPro</title>
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+  <div class="site">
+
+    <!-- Header -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="logo">
+          <a href="../index.html" class="logo-link">
+            <span class="logo-mark">H</span>
+            <span class="logo-text">HonestPro</span>
+          </a>
+        </div>
+
+        <nav class="site-nav">
+          <a href="../index.html">Home</a>
+
+          <div class="nav-group">
+            <button class="nav-dropdown-toggle" type="button">For Customers</button>
+            <div class="nav-dropdown">
+              <a href="customers.html">Customer Hub</a>
+              <a href="how-it-works-customers.html">How It Works</a>
+              <a href="faq-customers.html">Customer FAQ</a>
+              <a href="find-a-pro.html">Find a Pro</a>
+            </div>
+          </div>
+
+          <div class="nav-group">
+            <button class="nav-dropdown-toggle" type="button">For Pros</button>
+            <div class="nav-dropdown">
+              <a href="pros.html">Pro Hub</a>
+              <a href="how-it-works-pros.html">How It Works</a>
+              <a href="pricing-pros.html">Pricing</a>
+              <a href="faq-pros.html">Pro FAQ</a>
+            </div>
+          </div>
+
+          <a href="reviews.html">Reviews</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+
+          <a href="login.html" class="btn btn-small">Login</a>
+        </nav>
+
+        <button class="mobile-nav-toggle" type="button">☰</button>
+      </div>
+    </header>
+
+    <!-- Main -->
+    <main>
+      <section class="section section-light">
+        <div class="container" style="max-width: 880px;">
+
+          <header style="margin-bottom: 1.5rem;">
+            <p class="eyebrow">Customer settings</p>
+            <h1 style="font-size: 1.8rem;">Your profile & preferences</h1>
+            <p style="margin-top: 0.4rem; color: #4b5563; font-size: 0.93rem;">
+              Keep your info up to date so pros can reach you quickly and know what to expect.
+              You can change any of this later.
+            </p>
+          </header>
+
+          <form class="request-form" action="#" method="post">
+
+            <!-- Profile -->
+            <div class="form-card">
+              <h2>Profile</h2>
+              <p class="form-intro">
+                This is how we’ll address you and how pros see your name on requests.
+              </p>
+
+              <div class="form-grid">
+                <div class="form-group">
+                  <label class="form-label" for="first-name">First name</label>
+                  <input class="form-input" type="text" id="first-name" name="first_name" value="Jonathan" />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="last-name">Last name</label>
+                  <input class="form-input" type="text" id="last-name" name="last_name" value="DelaPaz" />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="email">Email</label>
+                  <input class="form-input" type="email" id="email" name="email" />
+                  <p class="form-help">Used for account notifications and request updates.</p>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="phone">Mobile phone</label>
+                  <input class="form-input" type="tel" id="phone" name="phone" />
+                  <p class="form-help">Shared only with pros you choose to work with.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Address -->
+            <div class="form-card">
+              <h2>Default location</h2>
+              <p class="form-intro">
+                We’ll use this as a starting point when you post new requests.
+              </p>
+
+              <div class="form-grid">
+                <div class="form-group form-group-full">
+                  <label class="form-label" for="street">Street address</label>
+                  <input class="form-input" type="text" id="street" name="street" />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="city">City</label>
+                  <input class="form-input" type="text" id="city" name="city" />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="zip">ZIP code</label>
+                  <input class="form-input" type="text" id="zip" name="zip" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Preferences -->
+            <div class="form-card">
+              <h2>Contact & notifications</h2>
+              <p class="form-intro">
+                Choose how pros reach out and what kind of messages you want from HonestPro.
+              </p>
+
+              <div class="form-grid">
+                <div class="form-group form-group-full">
+                  <label class="form-label">Preferred contact method</label>
+                  <div class="radio-pill-group">
+                    <label class="radio-pill">
+                      <input type="radio" name="contact_method" value="phone" />
+                      <span>Call</span>
+                    </label>
+                    <label class="radio-pill">
+                      <input type="radio" name="contact_method" value="text" />
+                      <span>Text</span>
+                    </label>
+                    <label class="radio-pill">
+                      <input type="radio" name="contact_method" value="email" />
+                      <span>Email</span>
+                    </label>
+                  </div>
+                  <p class="form-help">
+                    Pros will try this first unless you specify something different on a request.
+                  </p>
+                </div>
+
+                <div class="form-group form-group-full">
+                  <label class="form-label">Notifications from HonestPro</label>
+                  <label class="checkbox-label">
+                    <input type="checkbox" name="notify-leads" checked />
+                    <span>Send me updates when pros respond to my requests.</span>
+                  </label>
+                  <label class="checkbox-label">
+                    <input type="checkbox" name="notify-reminders" />
+                    <span>Remind me about upcoming job dates.</span>
+                  </label>
+                  <label class="checkbox-label">
+                    <input type="checkbox" name="notify-tips" />
+                    <span>Occasional tips on hiring and managing projects.</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Save -->
+            <div class="form-card">
+              <h2>Save changes</h2>
+              <p class="form-intro">
+                These settings apply to all new requests you make going forward.
+              </p>
+
+              <div class="form-footer">
+                <button type="submit" class="btn">
+                  Save settings
+                </button>
+                <p class="form-footer-note">
+                  Want to go back?
+                  <a href="customer-dashboard.html">Return to your dashboard</a>.
+                </p>
+              </div>
+            </div>
+
+          </form>
+
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-left">
+          <div class="logo footer-logo">
+            <span class="logo-mark">H</span>
+            <span class="logo-text">HonestPro</span>
+          </div>
+          <p>Fair leads. No spam. Built for long-term relationships.</p>
+        </div>
+
+        <div class="footer-columns">
+          <div class="footer-column">
+            <h3>Customers</h3>
+            <a href="customers.html">Customer Hub</a>
+            <a href="how-it-works-customers.html">How It Works</a>
+            <a href="faq-customers.html">Customer FAQ</a>
+            <a href="find-a-pro.html">Find a Pro</a>
+          </div>
+          <div class="footer-column">
+            <h3>Pros</h3>
+            <a href="pros.html">Pro Hub</a>
+            <a href="how-it-works-pros.html">How It Works</a>
+            <a href="pricing-pros.html">Pricing</a>
+            <a href="faq-pros.html">Pro FAQ</a>
+          </div>
+          <div class="footer-column">
+            <h3>Company</h3>
+            <a href="reviews.html">Reviews</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+          </div>
+          <div class="footer-column">
+            <h3>Legal</h3>
+            <a href="../legal/privacy.html">Privacy Policy</a>
+            <a href="../legal/terms.html">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="../assets/js/api.js"></script>
+  <script src="../assets/js/auth.js"></script>
+  <script src="../assets/js/guards.js"></script>
+
+  <script src="../assets/js/pages/customer-settings.js"></script>
+  <script src="../assets/js/main.js"></script>
+
+</body>
+</html>
