@@ -1,10 +1,21 @@
-// Guard: only pros can view this page
 document.addEventListener("DOMContentLoaded", async () => {
-  const me = await window.HPGuards.requirePro();
-  if (!me) return; // redirected
+  const { data } = await window.HPSupabase.auth.getUser();
+  const user = data?.user;
 
-  // Continue with existing dashboard logic here...
+  if (!user) {
+    window.location.href = "/pages/login.html";
+    return;
+  }
+
+  const role = user.user_metadata?.role;
+  if (role !== "pro") {
+    window.location.href = "/pages/login.html";
+    return;
+  }
+
+  // Continue with existing dashboard logic...
 });
+
 
 
 // Pro Dashboard: simple client-side filtering for leads table

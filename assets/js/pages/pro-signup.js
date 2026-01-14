@@ -1,11 +1,9 @@
-// ./assets/js/pages/pro-signup.js
+// assets/js/pages/pro-signup.js
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.querySelector("form.request-form");
+  if (!form) return;
 
-(function () {
-  // ---- helpers
-  const $ = (sel, root = document) => root.querySelector(sel);
-
-  function setFormError(form, message) {
-    // If you already have a shared UI pattern, swap this out.
+  const setError = (msg) => {
     let box = form.querySelector(".form-error");
     if (!box) {
       box = document.createElement("div");
@@ -15,105 +13,72 @@
       box.style.fontSize = "0.95rem";
       form.prepend(box);
     }
-    box.textContent = message || "";
-  }
+    box.textContent = msg || "";
+  };
 
-  // Convert FormData -> plain object
-  // - checkbox: include boolean
-  // - multiple values (same name): array
-  function formDataToObject(form) {
-    const fd = new FormData(form);
-    const obj = {};
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    setError("");
 
-    // First collect normal fields
-    for (const [key, value] of fd.entries()) {
-      if (obj[key] === undefined) obj[key] = value;
-      else if (Array.isArray(obj[key])) obj[key].push(value);
-      else obj[key] = [obj[key], value];
+    const email =
+      (form.querySelector('[name="business_email"]')?.value || "").trim();
+    const password =
+      (form.querySelector('[name="password"]')?.value || "").trim();
+    const confirm =
+      (form.querySelector('[name="confirm_password"]')?.value || "").trim();
+
+    if (!email) return setError("Business email is required.");
+    if (password.length < 8) return setError("Password must be at least 8 characters.");
+    if (password !== confirm) return setError("Passwords do not match.");
+
+    const agreed = form.querySelector('input[name="agree_terms"]')?.checked;
+    if (!agreed) return setError("Please agree to the Terms and Privacy Policy.");
+
+    // Build profile payload (store in table after auth user exists)
+    const profile = {
+      business_name: (form.querySelector('[name="business_name"]')?.value || "").trim(),
+      contact_name: (form.querySelector('[name="contact_name"]')?.value || "").trim(),
+      business_email: email,
+      business_phone: (form.querySelector('[name="business_phone"]')?.value || "").trim(),
+      website: (form.querySelector('[name="website"]')?.value || "").trim(),
+      base_zip: (form.querySelector('[name="base_zip"]')?.value || "").trim(),
+      radius: Number(form.querySelector('[name="radius"]')?.value || 0) || null,
+      job_type_residential: !!form.querySelector('[name="job_type_residential"]')?.checked,
+      job_type_commercial: !!form.querySelector('[name="job_type_commercial"]')?.checked,
+      licensed: !!form.querySelector('[name="licensed"]')?.checked,
+      insured: !!form.querySelector('[name="insured"]')?.checked,
+      created_at: new Date().toISOString(),
+    };
+
+    try {
+      // 1) Create auth user with role=pro
+      const { data, error } = await window.HPSupabase.auth.signUp({
+        email,
+        password,
+        options: { data: { role: "pro" } },
+      });
+      if (error) throw error;
+
+      const user = data?.user;
+      if (!user) {
+        // If email confirmations are ON, you may not get a session.
+        // Still create profile after they confirm (we’ll handle that later).
+        window.location.href = "/pages/login.html?check_email=1";
+        return;
+      }
+
+      // 2) Insert pro profile row (tied to auth user id)
+      const { error: profileErr } = await window.HPSupabase
+        .from("pro_profiles")
+        .insert([{ id: user.id, ...profile }]);
+
+      if (profileErr) throw profileErr;
+
+      // 3) Send them to pro dashboard (or early access thank-you)
+      window.location.href = "/dashboard/pro-dashboard.html";
+    } catch (err) {
+      setError(err?.message || "Something went wrong. Please try again.");
+      console.error("[HonestPro] Pro signup error:", err);
     }
-
-    // Then force checkbox booleans for any checkbox with a name
-    form.querySelectorAll('input[type="checkbox"][name]').forEach((cb) => {
-      // If checkbox shares a name with others, the FormData approach (arrays) might be desired.
-      // But on this page most checkboxes have unique names (licensed/insured/job_type_*).
-      if (!cb.name) return;
-
-      // If it already became an array (multi-checkbox same name), leave it alone.
-      if (Array.isArray(obj[cb.name])) return;
-
-      // Otherwise store boolean
-      obj[cb.name] = cb.checked;
-    });
-
-    return obj;
-  }
-
-  // ---- guard (requires auth.js)
-  // Assumes auth.js exposes something like:
-  //   window.Auth.getSession() -> { token, role } or null
-  // If your auth helpers are named differently, tell me what you used and I’ll match it.
-  function guardIfLoggedIn() {
-    const session = window.Auth?.getSession?.();
-    if (!session?.token) return;
-
-    if (session.role === "pro") window.location.href = "pro-dashboard.html";
-    else window.location.href = "customer-dashboard.html";
-  }
-
-  // ---- main
-  document.addEventListener("DOMContentLoaded", () => {
-    guardIfLoggedIn();
-
-    const form = $("form.request-form");
-    if (!form) return;
-
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      setFormError(form, "");
-
-      const password = $('#password', form)?.value?.trim() || "";
-      const confirm = $('#confirm-password', form)?.value?.trim() || "";
-
-      if (password.length < 8) {
-        setFormError(form, "Password must be at least 8 characters.");
-        return;
-      }
-      if (password !== confirm) {
-        setFormError(form, "Passwords do not match.");
-        return;
-      }
-
-      const agreed = form.querySelector('input[name="agree_terms"]')?.checked;
-      if (!agreed) {
-        setFormError(form, "Please agree to the Terms and Privacy Policy.");
-        return;
-      }
-
-      const payload = formDataToObject(form);
-
-      try {
-        // Assumes api.js exposes window.API.request(method, path, body)
-        // If yours is named differently, swap this call.
-        const res = await window.API.request("POST", "/auth/pro/apply", payload);
-
-        // Common patterns:
-        // - If pro applications create an account immediately: res could include token/role
-        // - If it’s just an application: res could be { ok: true }
-        if (res?.token) {
-          window.Auth?.setSession?.({ token: res.token, role: "pro" });
-          window.location.href = "pro-dashboard.html";
-          return;
-        }
-
-        // Otherwise: treat as “application submitted”
-        window.location.href = "login.html?applied=1";
-      } catch (err) {
-        const msg =
-          err?.message ||
-          err?.error ||
-          "Something went wrong submitting your application. Please try again.";
-        setFormError(form, msg);
-      }
-    });
   });
-})();
+});
