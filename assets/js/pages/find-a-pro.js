@@ -1,3 +1,7 @@
+// TEMP: Customer early access lock
+window.location.replace("/pages/customer-early-access.html");
+
+
 // assets/js/pages/find-a-pro.js
 document.addEventListener("DOMContentLoaded", async () => {
   const form = document.getElementById("hp-request-form");

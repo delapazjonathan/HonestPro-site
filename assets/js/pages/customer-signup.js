@@ -1,3 +1,7 @@
+// TEMP: Customer early access lock
+window.location.replace("/pages/customer-early-access.html");
+
+
 // assets/js/pages/customer-signup.js
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector("form.request-form");

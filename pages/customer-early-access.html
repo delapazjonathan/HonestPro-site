@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Customer Early Access - HonestPro</title>
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+
+  <!-- Supabase keys -->
+  <script>
+    window.HP_SUPABASE_URL = "YOUR_SUPABASE_URL";
+    window.HP_SUPABASE_ANON_KEY = "YOUR_SUPABASE_ANON_KEY";
+  </script>
+</head>
+
+<body>
+  <div class="site">
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="logo">
+          <a href="../index.html" class="logo-link">
+            <span class="logo-mark">H</span>
+            <span class="logo-text">HonestPro</span>
+          </a>
+        </div>
+
+        <nav class="site-nav">
+          <a href="../index.html">Home</a>
+          <a href="how-it-works-customers.html">How it Works</a>
+          <a href="customers.html">Customer Hub</a>
+          <a href="login.html" class="btn btn-small">Login</a>
+        </nav>
+
+        <button class="mobile-nav-toggle" type="button">☰</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="section section-light">
+        <div class="container" style="max-width: 880px;">
+          <header style="margin-bottom: 1.25rem;">
+            <p class="eyebrow">Customer early access</p>
+            <h1 style="font-size: 1.85rem;">We’re opening soon</h1>
+            <p style="margin-top: 0.4rem; color: #4b5563; font-size: 0.95rem;">
+              HonestPro is currently in early access while we onboard pros and finalize the request flow.
+              Join the list and we’ll notify you when customer requests go live.
+            </p>
+          </header>
+
+          <div class="form-card">
+            <h2>Get notified when requests go live</h2>
+
+            <form id="customerEarlyAccessForm" class="request-form" style="margin-top: 1rem;">
+              <div class="form-grid">
+                <div class="form-field">
+                  <label>Name (optional)</label>
+                  <input type="text" name="name" placeholder="Your name" />
+                </div>
+
+                <div class="form-field">
+                  <label>Email *</label>
+                  <input type="email" name="email" placeholder="you@email.com" required />
+                </div>
+
+                <div class="form-field">
+                  <label>ZIP (optional)</label>
+                  <input type="text" name="zip" placeholder="ZIP code" />
+                </div>
+              </div>
+
+              <button class="btn" type="submit" style="margin-top: 1rem;">
+                Join early access
+              </button>
+
+              <p id="formMsg" style="margin-top: .75rem; font-size: .95rem;"></p>
+            </form>
+
+            <div style="margin-top: 1.25rem;">
+              <a class="btn btn-outline" href="how-it-works-customers.html">How it works</a>
+              <a class="btn btn-outline" href="customers.html" style="margin-left: .5rem;">Customer Hub</a>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-left">
+          <div class="logo footer-logo">
+            <span class="logo-mark">H</span>
+            <span class="logo-text">HonestPro</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="/assets/js/supabase-client.js?v=1"></script>
+
+  <!-- Page logic -->
+  <script src="/assets/js/pages/customer-early-access.js?v=1"></script>
+
+  <!-- Site UI -->
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>
