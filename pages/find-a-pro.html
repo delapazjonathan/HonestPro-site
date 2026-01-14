@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Find a Pro  - HonestPro</title>
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+  <div class="site">
+
+    <!-- Header -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="logo">
+          <span class="logo-mark">H</span>
+          <span class="logo-text">HonestPro</span>
+        </div>
+
+        <nav class="site-nav">
+          <a href="../index.html">Home</a>
+
+          <div class="nav-group">
+            <button class="nav-dropdown-toggle" type="button">
+              For Customers
+            </button>
+            <div class="nav-dropdown">
+              <a href="customers.html">Customer Hub</a>
+              <a href="how-it-works-customers.html">How It Works</a>
+              <a href="faq-customers.html">Customer FAQ</a>
+              <a href="find-a-pro.html">Find a Pro</a>
+            </div>
+          </div>
+
+          <div class="nav-group">
+            <button class="nav-dropdown-toggle" type="button">
+              For Pros
+            </button>
+            <div class="nav-dropdown">
+              <a href="pros.html">Pro Hub</a>
+              <a href="how-it-works-pros.html">How It Works</a>
+              <a href="pricing-pros.html">Pricing</a>
+              <a href="faq-pros.html">Pro FAQ</a>
+            </div>
+          </div>
+
+          <a href="reviews.html">Reviews</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+
+          <a href="login.html" class="btn btn-small">Login</a>
+        </nav>
+
+        <button class="mobile-nav-toggle" type="button">
+          ☰
+        </button>
+      </div>
+    </header>
+
+    <!-- Main content -->
+    <main>
+      <!-- Hero: intro to the request form -->
+      <section class="hero">
+        <div class="container hero-inner fade-in-up" style="--delay: 0.05s;">
+          <div class="hero-text">
+            <p class="eyebrow">Start a request</p>
+            <h1>Tell us what you need, and we’ll find the right pros.</h1>
+            <p>
+              This short form gives us enough detail to match you with a small,
+              focused group of local pros. No spam, no long list of random calls —
+              just a few good options.
+            </p>
+
+            <div class="hero-actions">
+              <a href="customers.html" class="btn btn-outline">
+                Back to customer hub
+              </a>
+            </div>
+
+            <p class="hero-subtext">
+              You can review your matches and decide who to work with. There’s no
+              obligation to hire anyone.
+            </p>
+          </div>
+
+          <div class="hero-visual">
+            <div class="hero-card">
+              <h2>How this works</h2>
+              <ul>
+                <li>Fill out this form (a few minutes).</li>
+                <li>We match you with up to 3 pros.</li>
+                <li>You compare, ask questions, and choose.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Card-style form -->
+      <section class="section section-light">
+        <div class="container fade-in-up" style="--delay: 0.10s;">
+          <form class="request-form" id="hp-request-form">
+            <!-- Job details -->
+            <div class="form-card">
+              <h2>1. About your project</h2>
+              <p class="form-intro">
+                Share the basics so we can send your request to pros who actually
+                do this kind of work.
+              </p>
+
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="serviceType" class="form-label">
+                    What do you need help with?
+                  </label>
+                  <select id="serviceType" name="serviceType" class="form-input form-select">
+                    <option value="">Select a category</option>
+                    <option value="painting">Painting</option>
+                    <option value="cleaning">Cleaning / move-out clean</option>
+                    <option value="detailing">Mobile detailing</option>
+                    <option value="handyman">Handyman / repairs</option>
+                    <option value="yard">Yard work / exterior</option>
+                    <option value="tutoring">Tutoring / lessons</option>
+                    <option value="tax">Tax prep / admin help</option>
+                    <option value="other">Something else</option>
+                  </select>
+                  <p class="form-help">
+                    You’ll be able to describe the details in the next box.
+                  </p>
+                </div>
+
+                <div class="form-group">
+                  <label for="projectTitle" class="form-label">
+                    Short title for your project
+                  </label>
+                  <input
+                    id="projectTitle"
+                    name="projectTitle"
+                    type="text"
+                    class="form-input"
+                    placeholder="Example: Exterior repaint for 2-story home"
+                  />
+                </div>
+
+                <div class="form-group form-group-full">
+                  <label for="projectDetails" class="form-label">
+                    Tell us about the job
+                  </label>
+                  <textarea
+                    id="projectDetails"
+                    name="projectDetails"
+                    rows="4"
+                    class="form-input form-textarea"
+                    placeholder="Key details, sizes, specific rooms or items, special requests, etc."
+                  ></textarea>
+                  <p class="form-help">
+                    The more detail you share, the easier it is for pros to give
+                    realistic prices and timelines.
+                  </p>
+                </div>
+
+                <div class="form-group">
+                  <label for="propertyType" class="form-label">
+                    Where is this job?
+                  </label>
+                  <select id="propertyType" name="propertyType" class="form-input form-select">
+                    <option value="">Select an option</option>
+                    <option value="house">House</option>
+                    <option value="apartment">Apartment / condo</option>
+                    <option value="business">Business / commercial</option>
+                    <option value="vehicle">Vehicle</option>
+                    <option value="other">Other / not listed</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="budgetRange" class="form-label">
+                    Do you have a budget in mind? (optional)
+                  </label>
+                  <select id="budgetRange" name="budgetRange" class="form-input form-select">
+                    <option value="">I’m not sure yet</option>
+                    <option value="low">&lt; $250</option>
+                    <option value="mid">$250 – $750</option>
+                    <option value="high">$750 – $2,000</option>
+                    <option value="custom">&gt; $2,000</option>
+                  </select>
+                  <p class="form-help">
+                    This just helps pros know what level of solution you’re considering.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Location & timing -->
+            <div class="form-card">
+              <h2>2. Location & timing</h2>
+              <p class="form-intro">
+                This helps us focus on pros who actually serve your area and can
+                work on your timeline.
+              </p>
+
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="zip" class="form-label">
+                    ZIP code
+                  </label>
+                  <input
+                    id="zip"
+                    name="zip"
+                    type="text"
+                    class="form-input"
+                    placeholder="Example: 78610"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="city" class="form-label">
+                    City
+                  </label>
+                  <input
+                    id="city"
+                    name="city"
+                    type="text"
+                    class="form-input"
+                    placeholder="Example: Buda"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="timeline" class="form-label">
+                    When do you need this done?
+                  </label>
+                  <select id="timeline" name="timeline" class="form-input form-select">
+                    <option value="">Select an option</option>
+                    <option value="asap">As soon as possible</option>
+                    <option value="week">Within the next week</option>
+                    <option value="month">Within the next month</option>
+                    <option value="flexible">I’m flexible on timing</option>
+                    <option value="just-pricing">Just exploring pricing right now</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- Contact preferences -->
+            <div class="form-card">
+              <h2>3. How pros should reach you</h2>
+              <p class="form-intro">
+                We’ll only share this with the small group of pros matched to your
+                request. You can update this later as we build the customer dashboard.
+              </p>
+
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="fullName" class="form-label">
+                    Your name
+                  </label>
+                  <input
+                    id="fullName"
+                    name="fullName"
+                    type="text"
+                    class="form-input"
+                    placeholder="First and last name"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="email" class="form-label">
+                    Email
+                  </label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    class="form-input"
+                    placeholder="you@example.com"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="phone" class="form-label">
+                    Phone number
+                  </label>
+                  <input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    class="form-input"
+                    placeholder="(555) 000-0000"
+                  />
+                  <p class="form-help">
+                    We’ll only share this with the pros matched to your request.
+                  </p>
+                </div>
+
+                <div class="form-group form-group-full">
+                  <span class="form-label">
+                    How do you prefer pros to contact you?
+                  </span>
+                  <div class="radio-pill-group">
+                    <label class="radio-pill">
+                      <input type="radio" name="contactPreference" value="call" />
+                      <span>Call</span>
+                    </label>
+                    <label class="radio-pill">
+                      <input type="radio" name="contactPreference" value="text" />
+                      <span>Text</span>
+                    </label>
+                    <label class="radio-pill">
+                      <input type="radio" name="contactPreference" value="email" />
+                      <span>Email</span>
+                    </label>
+                    <label class="radio-pill">
+                      <input type="radio" name="contactPreference" value="any" />
+                      <span>Any of these is fine</span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="form-group form-group-full">
+                  <label for="contactTime" class="form-label">
+                    When is it okay for pros to reach out?
+                  </label>
+                  <select id="contactTime" name="contactTime" class="form-input form-select">
+                    <option value="">Select an option</option>
+                    <option value="business-hours">Normal business hours only</option>
+                    <option value="evenings">Evenings are okay</option>
+                    <option value="weekends">Weekends are okay</option>
+                    <option value="any">Any reasonable time is fine</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- Final consent + submit -->
+            <div class="form-card">
+              <h2>4. Review & send your request</h2>
+              <p class="form-intro">
+                When you submit, we’ll review your request and start matching
+                you with a small group of pros. You’ll hear from them based on
+                the contact preferences you chose.
+              </p>
+
+              <div class="form-group form-group-full">
+                <label class="checkbox-label">
+                  <input type="checkbox" name="agreeTerms" />
+                  <span>
+                    I understand that HonestPro will share my request with a
+                    small number of relevant pros, and that they may contact me
+                    about this specific job.
+                  </span>
+                </label>
+              </div>
+
+              <div class="form-footer">
+                <button type="submit" class="btn">
+                  Submit my request
+                </button>
+                <p class="form-footer-note">
+                  By submitting, you agree to our
+                  <a href="../legal/terms.html" target="_blank">Terms of Service</a>
+                  and
+                  <a href="../legal/privacy.html" target="_blank">Privacy Policy</a>.
+                </p>
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-left">
+          <div class="logo footer-logo">
+            <span class="logo-mark">H</span>
+            <span class="logo-text">HonestPro</span>
+          </div>
+          <p>Fair leads. No spam. Built for long-term relationships.</p>
+        </div>
+
+        <div class="footer-columns">
+          <div class="footer-column">
+            <h3>Customers</h3>
+            <a href="customers.html">Customer Hub</a>
+            <a href="how-it-works-customers.html">How It Works</a>
+            <a href="faq-customers.html">Customer FAQ</a>
+            <a href="find-a-pro.html">Find a Pro</a>
+          </div>
+          <div class="footer-column">
+            <h3>Pros</h3>
+            <a href="pros.html">Pro Hub</a>
+            <a href="how-it-works-pros.html">How It Works</a>
+            <a href="pricing-pros.html">Pricing</a>
+            <a href="faq-pros.html">Pro FAQ</a>
+          </div>
+          <div class="footer-column">
+            <h3>Company</h3>
+            <a href="reviews.html">Reviews</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+          </div>
+          <div class="footer-column">
+            <h3>Legal</h3>
+            <a href="../legal/privacy.html">Privacy Policy</a>
+            <a href="../legal/terms.html">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../assets/js/supabase-client.js"></script>
+
+
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/pages/find-a-pro.js"></script>
+
+</body>
+</html>
