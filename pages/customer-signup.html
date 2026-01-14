@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Customer Account - HonestPro</title>
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+  <div class="site">
+
+    <!-- Header -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="logo">
+          <a href="../index.html" class="logo-link">
+            <span class="logo-mark">H</span>
+            <span class="logo-text">HonestPro</span>
+          </a>
+        </div>
+
+        <nav class="site-nav">
+          <a href="../index.html">Home</a>
+
+          <div class="nav-group">
+            <button class="nav-dropdown-toggle" type="button">For Customers</button>
+            <div class="nav-dropdown">
+              <a href="customers.html">Customer Hub</a>
+              <a href="how-it-works-customers.html">How It Works</a>
+              <a href="faq-customers.html">Customer FAQ</a>
+              <a href="find-a-pro.html">Find a Pro</a>
+            </div>
+          </div>
+
+          <div class="nav-group">
+            <button class="nav-dropdown-toggle" type="button">For Pros</button>
+            <div class="nav-dropdown">
+              <a href="pros.html">Pro Hub</a>
+              <a href="how-it-works-pros.html">How It Works</a>
+              <a href="pricing-pros.html">Pricing</a>
+              <a href="faq-pros.html">Pro FAQ</a>
+            </div>
+          </div>
+
+          <a href="reviews.html">Reviews</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+
+          <a href="login.html" class="btn btn-small">Login</a>
+        </nav>
+
+        <button class="mobile-nav-toggle" type="button">☰</button>
+      </div>
+    </header>
+
+    <!-- Main content -->
+    <main>
+      <section class="section section-light">
+        <div class="container" style="max-width: 780px;">
+
+          <header style="margin-bottom: 1.5rem;">
+            <p class="eyebrow">Create your customer account</p>
+            <h1 style="font-size: 1.8rem;">Keep all your projects and pros in one place</h1>
+            <p style="margin-top: 0.4rem; color: #4b5563; font-size: 0.93rem;">
+              One login for all your requests, messages, and completed jobs. It’s free, and
+              we never sell your info to random third parties.
+            </p>
+          </header>
+
+          <form class="request-form" action="#" method="post">
+            <!-- Account details -->
+            <div class="form-card">
+              <h2>Basic info</h2>
+              <p class="form-intro">
+                Tell us a little about yourself so pros know who they’re working with.
+              </p>
+
+              <div class="form-grid">
+                <div class="form-group">
+                  <label class="form-label" for="first-name">First name</label>
+                  <input class="form-input" type="text" id="first-name" name="first_name" autocomplete="given-name" />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="last-name">Last name</label>
+                  <input class="form-input" type="text" id="last-name" name="last_name" autocomplete="family-name" />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="email">Email</label>
+                  <input class="form-input" type="email" id="email" name="email" autocomplete="email" />
+                  <p class="form-help">We’ll use this for updates and messages from pros.</p>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="phone">Mobile phone</label>
+                  <input class="form-input" type="tel" id="phone" name="phone" autocomplete="tel" />
+                  <p class="form-help">Only shared with pros you choose to work with.</p>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="password">Password</label>
+                  <input class="form-input" type="password" id="password" name="password" />
+                  <p class="form-help">At least 8 characters is a good starting point.</p>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="confirm-password">Confirm password</label>
+                  <input class="form-input" type="password" id="confirm-password" name="confirm_password" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Location / preferences -->
+            <div class="form-card">
+              <h2>Where you need work done</h2>
+              <p class="form-intro">
+                This helps us show you pros who actually serve your area.
+              </p>
+
+              <div class="form-grid">
+                <div class="form-group form-group-full">
+                  <label class="form-label" for="street">Street address (optional)</label>
+                  <input class="form-input" type="text" id="street" name="street" autocomplete="street-address" />
+                  <p class="form-help">You can keep this blank now and add it later to requests.</p>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="city">City</label>
+                  <input class="form-input" type="text" id="city" name="city" autocomplete="address-level2" />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="zip">ZIP code</label>
+                  <input class="form-input" type="text" id="zip" name="zip" autocomplete="postal-code" />
+                </div>
+
+                <div class="form-group form-group-full">
+                  <label class="form-label">Preferred contact method</label>
+                  <div class="radio-pill-group">
+                    <label class="radio-pill">
+                      <input type="radio" name="contact_method" value="phone" checked />
+                      <span>Call</span>
+                    </label>
+                    <label class="radio-pill">
+                      <input type="radio" name="contact_method" value="text" />
+                      <span>Text</span>
+                    </label>
+                    <label class="radio-pill">
+                      <input type="radio" name="contact_method" value="email" />
+                      <span>Email</span>
+                    </label>
+                  </div>
+                  <p class="form-help">
+                    Pros will try to use this first, or whatever you specify on a request.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Agreement + submit -->
+            <div class="form-card">
+              <h2>Finish setup</h2>
+              <p class="form-intro">
+                You’re almost done. A quick confirmation and you’ll be ready to post requests.
+              </p>
+
+              <div class="form-group form-group-full">
+                <label class="checkbox-label">
+                  <input type="checkbox" name="agree_terms" />
+                  <span>
+                    I agree to HonestPro’s
+                    <a href="../legal/terms.html" target="_blank">Terms of Service</a>
+                    and
+                    <a href="../legal/privacy.html" target="_blank">Privacy Policy</a>.
+                  </span>
+                </label>
+              </div>
+
+              <div class="form-footer">
+                <button type="submit" class="btn">
+                  Create customer account
+                </button>
+                <p class="form-footer-note">
+                  Already have an account?
+                  <a href="login.html">Log in here</a>.
+                </p>
+              </div>
+            </div>
+          </form>
+
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-left">
+          <div class="logo footer-logo">
+            <span class="logo-mark">H</span>
+            <span class="logo-text">HonestPro</span>
+          </div>
+          <p>Fair leads. No spam. Built for long-term relationships.</p>
+        </div>
+
+        <div class="footer-columns">
+          <div class="footer-column">
+            <h3>Customers</h3>
+            <a href="customers.html">Customer Hub</a>
+            <a href="how-it-works-customers.html">How It Works</a>
+            <a href="faq-customers.html">Customer FAQ</a>
+            <a href="find-a-pro.html">Find a Pro</a>
+          </div>
+          <div class="footer-column">
+            <h3>Pros</h3>
+            <a href="pros.html">Pro Hub</a>
+            <a href="how-it-works-pros.html">How It Works</a>
+            <a href="pricing-pros.html">Pricing</a>
+            <a href="faq-pros.html">Pro FAQ</a>
+          </div>
+          <div class="footer-column">
+            <h3>Company</h3>
+            <a href="reviews.html">Reviews</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+          </div>
+          <div class="footer-column">
+            <h3>Legal</h3>
+            <a href="../legal/privacy.html">Privacy Policy</a>
+            <a href="../legal/terms.html">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+<script src="./assets/js/api.js"></script>
+<script src="./assets/js/auth.js"></script>
+<script src="./assets/js/guards.js"></script>
+
+<script src="./assets/js/pages/customer-signup.js"></script>
+<script src="./assets/js/main.js"></script>
+
+</body>
+</html>
