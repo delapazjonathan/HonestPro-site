@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+  window.HP_SUPABASE_URL = "https://pselfhsdahnynlocphps.supabase.co";
+  window.HP_SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBzZWxmaHNkYWhueW5sb2NwaHBzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjgyNTQyNDcsImV4cCI6MjA4MzgzMDI0N30.lL4pHGG0WhU3FDEnuMA7GkO_bJ9v6XXRkb6O6heKW_A";
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Customer Dashboard - HonestPro</title>
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+  <!-- Site wrapper -->
+  <div class="site">
+
+    <!-- Header / Navigation -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="logo">
+          <a href="../index.html" class="logo-link">
+            <span class="logo-mark">H</span>
+            <span class="logo-text">HonestPro</span>
+          </a>
+        </div>
+
+        <nav class="site-nav">
+          <a href="../index.html">Home</a>
+
+          <div class="nav-group">
+            <button class="nav-dropdown-toggle" type="button">
+              For Customers
+            </button>
+            <div class="nav-dropdown">
+              <a href="customers.html">Customer Hub</a>
+              <a href="how-it-works-customers.html">How It Works</a>
+              <a href="faq-customers.html">Customer FAQ</a>
+              <a href="find-a-pro.html">Find a Pro</a>
+            </div>
+          </div>
+
+          <div class="nav-group">
+            <button class="nav-dropdown-toggle" type="button">
+              For Pros
+            </button>
+            <div class="nav-dropdown">
+              <a href="pros.html">Pro Hub</a>
+              <a href="how-it-works-pros.html">How It Works</a>
+              <a href="pricing-pros.html">Pricing</a>
+              <a href="faq-pros.html">Pro FAQ</a>
+            </div>
+          </div>
+
+          <a href="reviews.html">Reviews</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+
+          <a href="login.html" class="btn btn-small">Login</a>
+        </nav>
+
+        <button class="mobile-nav-toggle" type="button">
+          ☰
+        </button>
+      </div>
+    </header>
+
+    <!-- Main content -->
+    <main>
+      <section class="section dashboard-main-area">
+        <div class="container fade-in-up" style="--delay: 0.08s;">
+
+          <!-- DASHBOARD HEADER -->
+          <div class="dashboard-header-row" style="margin-bottom: 1.3rem;">
+            <div>
+              <p class="eyebrow">Customer dashboard</p>
+              <h1>
+                Welcome back,
+                <span class="highlighted-name">Jonathan</span>
+              </h1>
+              <p style="margin-top: 0.4rem; color: #4b5563; font-size: 0.9rem;">
+                Track your requests, compare pros, and keep everything in one place.
+              </p>
+            </div>
+
+            <div class="dashboard-header-actions">
+              <a href="find-a-pro.html" class="btn btn-small">
+                Start a new request
+              </a>
+              <a href="customer-settings.html" class="btn btn-small btn-outline">
+                Profile & preferences
+              </a>
+            </div>
+          </div>
+
+          <!-- SUMMARY CARDS -->
+          <div class="summary-grid" style="margin-bottom: 1.3rem;">
+            <div class="summary-card">
+              <div class="summary-label">Open requests</div>
+              <div class="summary-value">3</div>
+              <div class="summary-sub">Requests that are still active</div>
+            </div>
+
+            <div class="summary-card">
+              <div class="summary-label">Pros responding</div>
+              <div class="summary-value">5</div>
+              <div class="summary-sub">Across all open requests</div>
+            </div>
+
+            <div class="summary-card">
+              <div class="summary-label">Jobs in progress</div>
+              <div class="summary-value">1</div>
+              <div class="summary-sub">Work you’ve already approved</div>
+            </div>
+
+            <div class="summary-card">
+              <div class="summary-label">Completed jobs</div>
+              <div class="summary-value">4</div>
+              <div class="summary-sub">All time on HonestPro</div>
+            </div>
+          </div>
+
+          <!-- MAIN GRID: REQUESTS + SIDE COLUMN -->
+          <div class="dashboard-grid">
+
+            <!-- MAIN COLUMN: Requests table -->
+            <div class="dashboard-column-main">
+
+              <div class="leads-table">
+                <!-- Header row -->
+                <div class="leads-row leads-row-header">
+                  <div class="leads-cell">Request</div>
+                  <div class="leads-cell">Location & Details</div>
+                  <div class="leads-cell">Status</div>
+                  <div class="leads-cell">Updated</div>
+                  <div class="leads-cell">Action</div>
+                </div>
+
+                <!-- FILTERS -->
+                <div class="leads-row" style="background-color: #f9fafb;">
+                  <div class="leads-cell" style="grid-column: 1 / -1;">
+                    <div class="filter-group">
+                      <span class="filter-label">Show:</span>
+                      <button class="filter-pill filter-pill-active" data-request-filter="all">
+                        All
+                      </button>
+                      <button class="filter-pill" data-request-filter="open">
+                        Open
+                      </button>
+                      <button class="filter-pill" data-request-filter="in-progress">
+                        In progress
+                      </button>
+                      <button class="filter-pill" data-request-filter="closed">
+                        Closed
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- BODY ROWS -->
+
+                <!-- Request 1 - open / reviewing -->
+                <a
+                  href="customer-request-detail.html"
+                  class="leads-row leads-row-body"
+                  data-request-status="open"
+                >
+                  <div class="leads-cell">
+                    <div>Interior painting for 2 rooms</div>
+                    <div class="leads-meta">
+                      3 pros reviewing · You haven’t hired anyone yet
+                    </div>
+                  </div>
+                  <div class="leads-cell">
+                    <div>Buda, TX 78610</div>
+                    <div class="leads-meta">
+                      2 bedrooms · walls only · paint provided
+                    </div>
+                  </div>
+                  <div class="leads-cell">
+                    <span class="status-pill status-new">Reviewing pros</span>
+                  </div>
+                  <div class="leads-cell">
+                    <div>1 hour ago</div>
+                    <div class="leads-meta">Last response at 2:41 PM</div>
+                  </div>
+                  <div class="leads-cell">
+                    <div class="leads-meta">Compare & hire</div>
+                  </div>
+                </a>
+
+                <!-- Request 2 - in progress -->
+                <a
+                  href="customer-request-detail.html"
+                  class="leads-row leads-row-body"
+                  data-request-status="in-progress"
+                >
+                  <div class="leads-cell">
+                    <div>Exterior touch-ups & trim</div>
+                    <div class="leads-meta">
+                      You hired Brush &amp; Roll Pro Painting
+                    </div>
+                  </div>
+                  <div class="leads-cell">
+                    <div>Kyle, TX 78640</div>
+                    <div class="leads-meta">
+                      1-story home · trim + door repaint
+                    </div>
+                  </div>
+                  <div class="leads-cell">
+                    <span class="status-pill status-active">In progress</span>
+                  </div>
+                  <div class="leads-cell">
+                    <div>Yesterday</div>
+                    <div class="leads-meta">Job date: This Saturday</div>
+                  </div>
+                  <div class="leads-cell">
+                    <div class="leads-meta">View details</div>
+                  </div>
+                </a>
+
+                <!-- Request 3 - open / waiting -->
+                <a
+                  href="customer-request-detail.html"
+                  class="leads-row leads-row-body"
+                  data-request-status="open"
+                >
+                  <div class="leads-cell">
+                    <div>Deck staining & seal</div>
+                    <div class="leads-meta">
+                      Waiting for 1 more pro to respond
+                    </div>
+                  </div>
+                  <div class="leads-cell">
+                    <div>South Austin, TX 78748</div>
+                    <div class="leads-meta">
+                      250 sq ft · ground-level deck
+                    </div>
+                  </div>
+                  <div class="leads-cell">
+                    <span class="status-pill status-new">Open</span>
+                  </div>
+                  <div class="leads-cell">
+                    <div>2 days ago</div>
+                    <div class="leads-meta">You posted this request</div>
+                  </div>
+                  <div class="leads-cell">
+                    <div class="leads-meta">Check responses</div>
+                  </div>
+                </a>
+
+                <!-- Request 4 - closed -->
+                <a
+                  href="customer-request-detail.html"
+                  class="leads-row leads-row-body"
+                  data-request-status="closed"
+                >
+                  <div class="leads-cell">
+                    <div>Nursery repaint</div>
+                    <div class="leads-meta">
+                      Completed · you left a 5-star review
+                    </div>
+                  </div>
+                  <div class="leads-cell">
+                    <div>Buda, TX 78610</div>
+                    <div class="leads-meta">
+                      Full room repaint · low-VOC paint
+                    </div>
+                  </div>
+                  <div class="leads-cell">
+                    <span class="status-pill status-closed">Completed</span>
+                  </div>
+                  <div class="leads-cell">
+                    <div>Last week</div>
+                    <div class="leads-meta">Finished on Nov 15</div>
+                  </div>
+                  <div class="leads-cell">
+                    <div class="leads-meta">View summary</div>
+                  </div>
+                </a>
+
+              </div>
+
+              <p class="table-footer-note">
+                Each request is shared with no more than <strong>3 pros</strong>.
+                You’re always free to compare, ask questions, or decide not to move forward.
+              </p>
+            </div>
+
+            <!-- SIDE COLUMN: Activity + Tips -->
+            <div class="dashboard-column-side">
+
+              <!-- Recent activity -->
+              <div class="form-card">
+                <div class="card-header-row">
+                  <h2 style="font-size: 1rem;">Recent activity</h2>
+                </div>
+
+                <ul class="activity-list">
+                  <li>
+                    <span class="activity-dot"></span>
+                    <span>You posted “Interior painting for 2 rooms”.</span>
+                    <span class="activity-meta">1 hour ago</span>
+                  </li>
+                  <li>
+                    <span class="activity-dot"></span>
+                    <span>Brush &amp; Roll Pro Painting confirmed your Saturday appointment.</span>
+                    <span class="activity-meta">Yesterday</span>
+                  </li>
+                  <li>
+                    <span class="activity-dot"></span>
+                    <span>You rated “Nursery repaint” 5 stars.</span>
+                    <span class="activity-meta">Last week</span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Helpful tips -->
+              <div class="form-card">
+                <h2 style="font-size: 1rem; margin-bottom: 0.4rem;">Make the most of HonestPro</h2>
+                <p class="form-intro">
+                  A few quick moves can help pros give you better, more accurate quotes.
+                </p>
+
+                <ul class="bullet-list" style="margin-top: 0.4rem;">
+                  <li>Upload 2–3 photos of the space when you post a request.</li>
+                  <li>Reply to follow-up questions from pros within a day.</li>
+                  <li>Mark jobs as “completed” so your history stays organized.</li>
+                </ul>
+
+                <div class="card-actions">
+                  <a href="find-a-pro.html" class="btn btn-small">
+                    Start another request
+                  </a>
+                  <a href="faq-customers.html" class="text-link">
+                    Customer FAQ →
+                  </a>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-left">
+          <div class="logo footer-logo">
+            <span class="logo-mark">H</span>
+            <span class="logo-text">HonestPro</span>
+          </div>
+          <p>Fair leads. No spam. Built for long-term relationships.</p>
+        </div>
+
+        <div class="footer-columns">
+          <div class="footer-column">
+            <h3>Customers</h3>
+            <a href="customers.html">Customer Hub</a>
+            <a href="how-it-works-customers.html">How It Works</a>
+            <a href="faq-customers.html">Customer FAQ</a>
+            <a href="find-a-pro.html">Find a Pro</a>
+          </div>
+          <div class="footer-column">
+            <h3>Pros</h3>
+            <a href="pros.html">Pro Hub</a>
+            <a href="how-it-works-pros.html">How It Works</a>
+            <a href="pricing-pros.html">Pricing</a>
+            <a href="faq-pros.html">Pro FAQ</a>
+          </div>
+          <div class="footer-column">
+            <h3>Company</h3>
+            <a href="reviews.html">Reviews</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+          </div>
+          <div class="footer-column">
+            <h3>Legal</h3>
+            <a href="../legal/privacy.html">Privacy Policy</a>
+            <a href="../legal/terms.html">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+  <!-- Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <script>
+  window.HP_SUPABASE_URL = "YOUR_SUPABASE_URL";
+  window.HP_SUPABASE_ANON_KEY = "YOUR_SUPABASE_ANON_KEY";
+  </script>
+
+  <script src="../assets/js/supabase-client.js?v=1"></script>
+
+  <!-- Page logic -->
+  <script src="../assets/js/pages/customer-dashboard.js?v=1"></script>
+
+  <!-- Site UI -->
+  <script src="../assets/js/main.js"></script>
+
+
+</body>
+</html>
