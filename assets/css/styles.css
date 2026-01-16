@@ -2933,3 +2933,99 @@ h1, h2, h3, h4 {
 .section > .container > h2::after {
   background: linear-gradient(90deg, var(--hp-primary), var(--hp-accent));
 }
+
+/* --- Micro polish pass (spacing, shadows, focus, motion) --- */
+:root {
+  --hp-radius-sm: 0.6rem;
+  --hp-radius-md: 0.9rem;
+  --hp-radius-lg: 1.25rem;
+
+  --hp-shadow-sm: 0 6px 16px rgba(15, 42, 68, 0.08);
+  --hp-shadow-md: 0 12px 28px rgba(15, 42, 68, 0.12);
+  --hp-shadow-lg: 0 18px 44px rgba(15, 42, 68, 0.16);
+
+  --hp-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --hp-fast: 120ms;
+  --hp-med: 180ms;
+}
+
+/* Consistent surfaces */
+.form-card,
+.feature-card,
+.summary-card,
+.hp-card,
+.leads-table,
+.hero-card,
+.step-card {
+  border-radius: var(--hp-radius-lg);
+  box-shadow: var(--hp-shadow-sm);
+}
+
+/* Softer hover lift on clickable cards/rows */
+.leads-row-body,
+.hp-pro-card {
+  transition: transform var(--hp-med) var(--hp-ease),
+    box-shadow var(--hp-med) var(--hp-ease),
+    border-color var(--hp-med) var(--hp-ease),
+    background-color var(--hp-med) var(--hp-ease);
+}
+
+.leads-row-body:hover {
+  background-color: rgba(13, 148, 136, 0.05);
+  box-shadow: var(--hp-shadow-md);
+  transform: translateY(-1px);
+}
+
+/* Buttons: smoother motion + consistent radius */
+.btn,
+.hp-btn {
+  border-radius: 999px;
+  transition: transform var(--hp-fast) var(--hp-ease),
+    box-shadow var(--hp-fast) var(--hp-ease),
+    background-color var(--hp-fast) var(--hp-ease),
+    border-color var(--hp-fast) var(--hp-ease),
+    color var(--hp-fast) var(--hp-ease),
+    opacity var(--hp-fast) var(--hp-ease);
+}
+
+.btn:active,
+.hp-btn:active {
+  transform: translateY(0);
+}
+
+/* Inputs: unify colors to palette + improve focus ring */
+.form-label {
+  color: var(--hp-text-700);
+}
+
+.form-input {
+  border-radius: var(--hp-radius-sm);
+  border-color: var(--hp-border);
+  color: var(--hp-heading);
+  background-color: var(--hp-white);
+}
+
+.form-input:focus {
+  border-color: rgba(13, 148, 136, 0.55);
+  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.18);
+}
+
+/* Accessible focus states (keyboard users) */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.28);
+  border-radius: var(--hp-radius-sm);
+}
+
+/* Reduce motion if user requests it */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+    scroll-behavior: auto !important;
+  }
+}
