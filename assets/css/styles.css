@@ -7,6 +7,47 @@
   padding: 0;
 }
 
+/* --- HonestPro Theme Tokens (central color system) --- */
+:root {
+  /* Brand */
+  --hp-blue-900: #0f2a44;   /* deep blue (primary) */
+  --hp-blue-700: #1e4e7a;   /* hover blue */
+  --hp-teal-600: #0d9488;   /* blue-green accent */
+  --hp-gold-500: #d4af37;   /* premium accent */
+
+  /* Neutrals */
+  --hp-white: #ffffff;
+  --hp-slate-50: #f9fafb;
+  --hp-slate-100: #f3f4f6;
+  --hp-slate-200: #e5e7eb;
+  --hp-slate-300: #cbd5e1;
+
+  /* Text */
+  --hp-text-900: #111827;  /* headings */
+  --hp-text-700: #1f2937;  /* body */
+  --hp-text-500: #6b7280;  /* muted */
+
+  /* Functional */
+  --hp-danger-600: #dc2626;
+
+  /* Applied tokens */
+  --hp-bg: var(--hp-white);
+  --hp-surface: var(--hp-white);
+  --hp-surface-muted: var(--hp-slate-50);
+  --hp-border: var(--hp-slate-200);
+
+  --hp-primary: var(--hp-blue-900);
+  --hp-primary-hover: var(--hp-blue-700);
+
+  --hp-accent: var(--hp-teal-600);
+  --hp-highlight: var(--hp-gold-500);
+
+  --hp-text: var(--hp-text-700);
+  --hp-text-muted: var(--hp-text-500);
+  --hp-heading: var(--hp-text-900);
+}
+
+
 
 html,
 body {
@@ -2622,4 +2663,273 @@ body.is-loaded .fade-in-up {
 .mobile-nav-toggle.is-active {
   background: #eff6ff;
   border-color: #bfdbfe;
+}
+
+
+/* --- HonestPro Theme Overrides (uses tokens above) --- */
+body {
+  color: var(--hp-heading);
+  background-color: var(--hp-surface-muted);
+}
+
+h1, h2, h3, h4 {
+  color: var(--hp-heading);
+}
+
+/* Header + nav */
+.site-header {
+  background: var(--hp-primary);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.site-header .logo-link,
+.site-header .logo-text,
+.site-header .site-nav a,
+.site-header .nav-dropdown-toggle {
+  color: var(--hp-white);
+}
+
+.site-header .site-nav a:hover,
+.site-header .nav-dropdown-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: var(--hp-highlight);
+}
+
+/* Keep dropdown menus light */
+.nav-dropdown {
+  background-color: var(--hp-white);
+  border: 1px solid var(--hp-border);
+}
+
+.nav-dropdown a {
+  color: var(--hp-text-700);
+}
+
+.nav-dropdown a:hover {
+  background-color: var(--hp-surface-muted);
+  color: var(--hp-primary);
+}
+
+/* Logo mark (the H) */
+.logo-mark {
+  background: var(--hp-highlight);
+  color: var(--hp-primary);
+}
+
+/* Primary buttons */
+.btn {
+  background: var(--hp-primary);
+  color: var(--hp-white);
+  box-shadow: 0 8px 20px rgba(15, 42, 68, 0.25);
+}
+
+.btn:hover {
+  box-shadow: 0 10px 25px rgba(15, 42, 68, 0.32);
+  opacity: 0.98;
+}
+
+/* Outline buttons */
+.btn-outline {
+  background: transparent;
+  color: var(--hp-accent);
+  border: 1px solid rgba(13, 148, 136, 0.35);
+}
+
+.btn-outline:hover {
+  background: rgba(13, 148, 136, 0.10);
+}
+
+/* Cards */
+.form-card,
+.feature-card,
+.summary-card,
+.leads-table {
+  background-color: var(--hp-surface);
+  border: 1px solid var(--hp-border);
+}
+
+.section-light {
+  background-color: var(--hp-surface-muted);
+}
+
+/* Links used as UI */
+.hp-link--back {
+  color: var(--hp-accent);
+}
+
+/* Filter pills */
+.filter-pill:hover {
+  background-color: rgba(13, 148, 136, 0.10);
+  border-color: rgba(13, 148, 136, 0.45);
+}
+
+.filter-pill-active {
+  background-color: var(--hp-primary);
+  border-color: var(--hp-primary);
+  color: var(--hp-white);
+}
+
+/* Status pills */
+.status-new {
+  background-color: rgba(13, 148, 136, 0.12);
+  color: var(--hp-accent);
+}
+
+.status-active {
+  background-color: rgba(15, 42, 68, 0.12);
+  color: var(--hp-primary);
+}
+
+.status-closed {
+  background-color: rgba(107, 114, 128, 0.14);
+  color: var(--hp-text-muted);
+}
+
+/* Customer Request Detail “hp-” buttons */
+.hp-btn--primary {
+  background-color: var(--hp-primary);
+  color: var(--hp-white);
+}
+
+.hp-btn--secondary {
+  background-color: rgba(13, 148, 136, 0.12);
+  border-color: rgba(13, 148, 136, 0.30);
+  color: var(--hp-accent);
+}
+
+.hp-btn--ghost {
+  background-color: transparent;
+  border-color: rgba(255, 255, 255, 0);
+  color: var(--hp-primary);
+}
+
+.hp-btn--danger {
+  background-color: rgba(220, 38, 38, 0.10);
+  border-color: rgba(220, 38, 38, 0.25);
+  color: var(--hp-danger-600);
+}
+
+/* Tags: make “top rated” feel premium */
+.hp-tag--top-rated {
+  background-color: rgba(212, 175, 55, 0.18);
+  border-color: rgba(212, 175, 55, 0.35);
+  color: #7a5d00;
+}
+
+/* --- Theme Polish Pass (dropdown + dashboard components) --- */
+
+/* Mobile nav toggle should work on dark header */
+.site-header .mobile-nav-toggle {
+  background: rgba(255, 255, 255, 0.10);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: var(--hp-white);
+}
+
+.site-header .mobile-nav-toggle.is-active {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+/* Pro cards (customer-request-detail) — remove purple/indigo */
+.hp-pro-card {
+  border-color: var(--hp-border);
+  background-color: var(--hp-surface);
+}
+
+.hp-pro-card:hover {
+  border-color: rgba(13, 148, 136, 0.45);
+  background-color: rgba(13, 148, 136, 0.06);
+  box-shadow: 0 12px 25px rgba(15, 42, 68, 0.14);
+}
+
+.hp-pro-card--selected {
+  border-color: rgba(15, 42, 68, 0.55);
+  background-color: rgba(15, 42, 68, 0.08);
+  box-shadow: 0 14px 30px rgba(15, 42, 68, 0.18);
+}
+
+.hp-pro-name {
+  color: var(--hp-heading);
+}
+
+.hp-pro-meta {
+  color: var(--hp-text-muted);
+}
+
+/* Tags */
+.hp-tag {
+  background-color: rgba(15, 42, 68, 0.08);
+  color: var(--hp-primary);
+  border-color: rgba(15, 42, 68, 0.14);
+}
+
+.hp-tag--new {
+  background-color: rgba(13, 148, 136, 0.12);
+  color: var(--hp-accent);
+  border-color: rgba(13, 148, 136, 0.25);
+}
+
+/* “hp-” buttons: normalize to palette */
+.hp-btn {
+  background-color: var(--hp-slate-100);
+  color: var(--hp-heading);
+  border-color: var(--hp-border);
+}
+
+.hp-btn:hover {
+  background-color: var(--hp-slate-200);
+}
+
+.hp-btn--primary {
+  background-color: var(--hp-primary);
+  border-color: rgba(255, 255, 255, 0);
+  box-shadow: 0 6px 16px rgba(15, 42, 68, 0.22);
+}
+
+.hp-btn--primary:hover {
+  background-color: var(--hp-primary-hover);
+}
+
+.hp-btn--secondary:hover {
+  background-color: rgba(13, 148, 136, 0.18);
+  border-color: rgba(13, 148, 136, 0.35);
+}
+
+.hp-btn--ghost {
+  background-color: transparent;
+  border-color: var(--hp-border);
+  color: var(--hp-primary);
+}
+
+.hp-btn--ghost:hover {
+  background-color: rgba(15, 42, 68, 0.06);
+}
+
+/* Mobile menu: keep readable when header is dark */
+@media (max-width: 720px) {
+  .site-header .site-nav {
+    background: var(--hp-white);
+    border-bottom: 1px solid var(--hp-border);
+  }
+
+  .site-header .site-nav a,
+  .site-header .nav-dropdown-toggle {
+    color: var(--hp-text-700);
+  }
+
+  .site-header .site-nav a:hover,
+  .site-header .nav-dropdown-toggle:hover {
+    background-color: var(--hp-surface-muted);
+    color: var(--hp-primary);
+  }
+}
+
+/* Replace remaining purple accents with brand blue/teal */
+.hero::after {
+  background: radial-gradient(circle, rgba(15, 42, 68, 0.16), transparent 65%);
+}
+
+.section-header h2::after,
+.section > .container > h2::after {
+  background: linear-gradient(90deg, var(--hp-primary), var(--hp-accent));
 }
