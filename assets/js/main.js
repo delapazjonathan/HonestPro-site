@@ -18,16 +18,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 document.addEventListener("DOMContentLoaded", () => {
-  const proCtas = document.querySelectorAll(
-    'a[href*="pro-signup"], a[href*="pros"], a[data-role="pro-signup"]'
-  );
-
-  proCtas.forEach(link => {
-    link.href = "/pages/pro-early-access.html";
-  });
-});
-
-document.addEventListener("DOMContentLoaded", () => {
   // TEMP: Funnel customer CTAs to early access
   const customerCtas = document.querySelectorAll(
     'a[href*="customer-signup"], a[href*="find-a-pro"]'
