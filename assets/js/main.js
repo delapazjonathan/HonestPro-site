@@ -17,13 +17,3 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
-document.addEventListener("DOMContentLoaded", () => {
-  // TEMP: Funnel customer CTAs to early access
-  const customerCtas = document.querySelectorAll(
-    'a[href*="customer-signup"], a[href*="find-a-pro"]'
-  );
-
-  customerCtas.forEach(a => {
-    a.href = "/pages/customer-early-access.html";
-  });
-});
