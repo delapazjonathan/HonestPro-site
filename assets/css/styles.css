@@ -3029,3 +3029,9 @@ textarea:focus-visible {
     scroll-behavior: auto !important;
   }
 }
+
+/* Prevent page flash before auth guard finishes */
+body:not(.hp-auth-ready) {
+  visibility: hidden;
+}
+
