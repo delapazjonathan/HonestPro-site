@@ -1,35 +1,34 @@
-// assets/js/pro-dashboard.js
 document.addEventListener("DOMContentLoaded", async () => {
-  // HARD GUARD: must have Supabase
+  // If Supabase isn't available, force login (prevents accidental open access)
   if (!window.HPSupabase) {
-    console.error("[HonestPro] HPSupabase missing on pro dashboard.");
     window.location.href = "/pages/login.html";
     return;
   }
 
-  // HARD GUARD: must be logged in
-  const { data, error } = await window.HPSupabase.auth.getUser();
+  const { data } = await window.HPSupabase.auth.getUser();
   const user = data?.user;
 
-  if (error || !user) {
+  // Must be logged in
+  if (!user) {
     window.location.href = "/pages/login.html";
     return;
   }
 
-  // HARD GUARD: must be pro
+  // Must be a pro
   const role = user.user_metadata?.role;
   if (role !== "pro") {
     window.location.href = "/pages/login.html";
     return;
   }
 
+  // Load credits UI safely
   try {
     await loadCreditsUI(user.id);
   } catch (e) {
     console.error("[HonestPro] Credits UI error:", e);
   }
 
-  // Lead table filtering
+  // Table filtering
   initLeadFiltering();
 });
 
@@ -89,7 +88,6 @@ async function loadCreditsUI(proId) {
 function initLeadFiltering() {
   const filterButtons = document.querySelectorAll(".filter-pill");
   const rows = document.querySelectorAll(".leads-row-body");
-
   if (!filterButtons.length || !rows.length) return;
 
   function applyFilter(filter) {
@@ -100,8 +98,8 @@ function initLeadFiltering() {
   }
 
   filterButtons.forEach((btn) => {
-    btn.addEventListener("click", function () {
-      const filter = this.getAttribute("data-filter");
+    btn.addEventListener("click", () => {
+      const filter = btn.getAttribute("data-filter");
       filterButtons.forEach((b) =>
         b.classList.toggle("filter-pill-active", b === btn)
       );

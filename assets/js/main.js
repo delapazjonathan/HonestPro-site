@@ -55,4 +55,24 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 });
 
+document.addEventListener("DOMContentLoaded", async () => {
+  const btn = document.querySelector("[data-auth-button]");
+  if (!btn) return;
+
+  // Only switch if Supabase is available on this page
+  if (!window.HPSupabase) return;
+
+  const { data } = await window.HPSupabase.auth.getUser();
+  const user = data?.user;
+
+  if (user) {
+    btn.textContent = "Logout";
+    btn.href = "/pages/logout.html";
+  } else {
+    btn.textContent = "Login";
+    btn.href = "/pages/login.html";
+  }
+});
+
+
 
