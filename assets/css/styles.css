@@ -3030,9 +3030,9 @@ textarea:focus-visible {
   }
 }
 
-/* Only hide pages that require auth */
 body[data-requires-auth="true"]:not(.hp-auth-ready) {
-  visibility: hidden;
+  opacity: 0.05;
 }
+
 
 
