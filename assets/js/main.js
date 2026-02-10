@@ -36,3 +36,23 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 });
 
+document.addEventListener("DOMContentLoaded", async () => {
+  const authBtn = document.querySelector("[data-auth-button]");
+  if (!authBtn) return;
+
+  // If Supabase isn't loaded on this page, leave as-is
+  if (!window.HPSupabase) return;
+
+  const { data } = await window.HPSupabase.auth.getUser();
+  const user = data?.user;
+
+  if (user) {
+    authBtn.textContent = "Logout";
+    authBtn.href = "/pages/logout.html";
+  } else {
+    authBtn.textContent = "Login";
+    authBtn.href = "/pages/login.html";
+  }
+});
+
+
