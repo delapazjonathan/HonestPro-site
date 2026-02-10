@@ -3031,8 +3031,9 @@ textarea:focus-visible {
 }
 
 body[data-requires-auth="true"]:not(.hp-auth-ready) {
-  opacity: 0.05;
+  visibility: hidden;
 }
+
 
 
 
