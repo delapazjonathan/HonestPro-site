@@ -17,3 +17,22 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
+document.addEventListener("DOMContentLoaded", async () => {
+  if (!window.HPSupabase) return;
+
+  const { data } = await window.HPSupabase.auth.getUser();
+  const user = data?.user;
+
+  const authBtn = document.querySelector("[data-auth-button]");
+  if (!authBtn) return;
+
+  if (user) {
+    authBtn.textContent = "Logout";
+    authBtn.href = "/pages/logout.html";
+  } else {
+    authBtn.textContent = "Login";
+    authBtn.href = "/pages/login.html";
+  }
+});
+

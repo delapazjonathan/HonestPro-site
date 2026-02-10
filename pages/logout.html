@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+    window.HP_SUPABASE_URL = window.HP_SUPABASE_URL || "YOUR_SUPABASE_URL";
+    window.HP_SUPABASE_ANON_KEY = window.HP_SUPABASE_ANON_KEY || "YOUR_SUPABASE_ANON_KEY";
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Logging out… - HonestPro</title>
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+
+  <!-- Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="/assets/js/supabase-client.js?v=1"></script>
+</head>
+<body>
+  <div class="site">
+    <main>
+      <section class="section section-light">
+        <div class="container" style="max-width: 700px;">
+          <div class="form-card" style="text-align:center;">
+            <h1 style="font-size: 1.4rem;">Logging you out…</h1>
+            <p style="color:#4b5563; margin-top:0.5rem;">One moment.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    (async function () {
+      try {
+        if (window.HPSupabase) {
+          await window.HPSupabase.auth.signOut();
+        }
+      } catch (e) {
+        console.warn("Logout error:", e);
+      } finally {
+        window.location.href = "/pages/login.html";
+      }
+    })();
+  </script>
+</body>
+</html>
