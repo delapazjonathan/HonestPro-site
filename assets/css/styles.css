@@ -343,3 +343,110 @@ body {
     justify-content: center;
   }
 }
+/* ===== HAMBURGER BUTTON ===== */
+.mobile-nav-toggle {
+  display: none;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  cursor: pointer;
+  position: relative;
+}
+
+.mobile-nav-toggle span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: #ffffff;
+  margin: 4px auto;
+  border-radius: 999px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.mobile-nav-toggle.is-active span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.mobile-nav-toggle.is-active span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-nav-toggle.is-active span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* ===== MOBILE NAV ===== */
+@media (max-width: 720px) {
+  .mobile-nav-toggle {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    margin-left: auto;
+  }
+
+  .site-nav {
+    display: none;
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: 1rem;
+    right: 1rem;
+    width: auto;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+    padding: 1rem;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 1rem;
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
+    z-index: 100;
+  }
+
+  .site-nav.site-nav--open {
+    display: flex;
+  }
+
+  /* Make links visible inside white dropdown */
+  .site-header .site-nav a,
+  .site-header .site-nav .btn,
+  .site-header .site-nav .btn-primary,
+  .site-header .site-nav .btn-outline {
+    color: #0f172a;
+    background: transparent;
+    border-color: #e2e8f0;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .site-header .site-nav a:hover,
+  .site-header .site-nav .btn:hover,
+  .site-header .site-nav .btn-primary:hover,
+  .site-header .site-nav .btn-outline:hover {
+    background: #f8fafc;
+    color: #0f2a44;
+  }
+
+  /* Keep primary action looking like a button */
+  .site-header .site-nav .btn-primary {
+    background: #0f2a44;
+    color: #ffffff;
+    border-color: #0f2a44;
+  }
+
+  .site-header .site-nav .btn-primary:hover {
+    background: #1e4e7a;
+    color: #ffffff;
+  }
+
+  .site-header .site-nav .btn-outline {
+    background: #ffffff;
+    color: #0f2a44;
+    border: 1px solid #cbd5e1;
+  }
+}
