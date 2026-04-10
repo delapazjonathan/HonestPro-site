@@ -28,21 +28,42 @@
           <div class="reveal">
             <span class="eyebrow">Request service</span>
             <h1>Tell us about the appliance and the issue.</h1>
-            <p>This page is now set up as a direct service request form for HonestPro Appliance Repair. The form script is cleaned up and ready for you to connect to Formspree, a webhook, or another booking workflow.</p>
-            <div class="card">
-              <h3>What to include</h3>
-              <ul class="info-list">
-                <li>Appliance type</li>
-                <li>Brand and model if available</li>
-                <li>Main symptom or error</li>
-                <li>Your city or ZIP</li>
-                <li>Best way to reach you</li>
+            <p>
+              Need appliance repair in Buda, Kyle, South Austin, San Marcos, or a nearby area? Fill out the form below and include as much detail as you can about the appliance and the problem.
+            </p>
+            <p>
+              The more information you provide, the easier it is to understand the issue and prepare for your service call.
+            </p>
+              <div class="card">
+                <h3>Helpful information to include</h3>
+                <ul class="info-list">
+                  <li>Appliance type</li>
+                  <li>Brand and model number if available</li>
+                  <li>Main symptom or error code</li>
+                  <li>Your city or ZIP code</li>
+                  <li>The best phone number to reach you</li>
               </ul>
             </div>
           </div>
+          <div class="card" style="margin-top: 1rem;">
+            <h3>What happens next</h3>
+            <ul class="info-list">
+                <li>Your request is reviewed as soon as possible</li>
+                <li>You’ll be contacted to discuss the issue and scheduling</li>
+                <li>An on-site diagnosis is performed before major repair work is approved</li>
+              </ul>
+          </div>
 
           <div class="panel reveal" style="padding: 1.35rem;">
-            <h2>Service request form</h2>
+            <h2>Request appliance repair</h2>
+            <p class="form-note" style="margin-bottom: 1rem;">
+              Fill out the form below and we’ll follow up to discuss the issue and scheduling.
+            </p>
+            <div class="card" style="margin-bottom: 1rem;">
+              <h3>Prefer to call?</h3>
+              <p>You can also call directly to discuss your appliance issue and availability.</p>
+              <a class="btn btn-outline" href="tel:512-000-0000">(512) 000-0000</a>
+            </div>
             <form id="service-request-form" data-endpoint="">
               <div class="form-grid">
                 <div class="field">
@@ -84,12 +105,18 @@
                 </div>
                 <div class="field-full">
                   <label for="issue">What is the issue?</label>
-                  <textarea id="issue" name="issue" placeholder="Example: Refrigerator is warm in fresh food section, freezer still cooling, and ice maker stopped working."></textarea>
+                  <textarea id="issue" name="issue" placeholder="Example: Refrigerator is warm in the fresh food section, freezer is still cooling, and the ice maker stopped working."></textarea>
                 </div>
               </div>
               <button class="btn btn-primary btn-full" type="submit">Submit request</button>
-              <p class="form-note">To connect submissions, add your real endpoint to the form's data-endpoint attribute in contact.html.</p>
+              <p class="form-note">
+                Please include as much detail as possible so the issue can be reviewed before scheduling.
+              </p>
               <div class="form-success" id="form-success"></div>
+              <div class="card" style="margin-top: 1rem;">
+                <h3>Service area</h3>
+                <p>Buda, Kyle, South Austin, San Marcos, and nearby surrounding areas.</p>
+              </div>
             </form>
           </div>
         </div>
