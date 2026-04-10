@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Request Submitted | HonestPro Appliance Repair</title>
+  <meta name="description" content="Thank you for contacting HonestPro Appliance Repair." />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <div class="site">
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="logo-link" href="index.html"><span class="logo-mark">H</span><span class="logo-text">HonestPro Appliance Repair</span></a>
+        <nav class="site-nav">
+          <a href="index.html">Home</a>
+          <a href="services.html">Services</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Request Service</a>
+        </nav>
+        <button class="mobile-nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="container split-layout">
+          <div class="card">
+            <span class="eyebrow">Request submitted</span>
+            <h1>Thanks — your service request is ready.</h1>
+            <p>We replaced the old marketplace confirmation page with a simple appliance-service follow-up screen. This is where customers should land after submitting the request form.</p>
+            <p>Once you connect the form endpoint, this page can stay exactly as-is.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="contact.html">Submit another request</a>
+              <a class="btn btn-secondary" href="index.html">Back to home</a>
+            </div>
+          </div>
+
+          <aside class="panel">
+            <h2>What happens next</h2>
+            <ul class="info-list">
+              <li>You review the appliance type, brand, and symptoms.</li>
+              <li>You contact the customer directly or move the request into Housecall Pro.</li>
+              <li>You schedule the visit and handle invoicing from your existing workflow.</li>
+            </ul>
+            <div class="callout" id="request-summary-box">
+              <strong>Latest request:</strong>
+              <div id="request-summary" class="muted" style="margin-top:0.55rem;">No saved request details yet.</div>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <a class="logo-link" href="index.html"><span class="logo-mark">H</span><span class="logo-text">HonestPro Appliance Repair</span></a>
+          <p>Local appliance repair focused on honest recommendations, quality diagnostics, and dependable service.</p>
+        </div>
+        <div>
+          <h3 class="footer-title">Pages</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Request Service</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer-title">Service area</h3>
+          <ul class="footer-links">
+            <li>Buda</li>
+            <li>Kyle</li>
+            <li>South Austin</li>
+            <li>San Marcos</li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="assets/js/main.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const summaryEl = document.getElementById("request-summary");
+      const raw = sessionStorage.getItem("honestpro_last_request");
+      if (!raw || !summaryEl) return;
+      try {
+        const data = JSON.parse(raw);
+        summaryEl.innerHTML = [
+          data.name ? `<div><strong>Name:</strong> ${data.name}</div>` : "",
+          data.phone ? `<div><strong>Phone:</strong> ${data.phone}</div>` : "",
+          data.appliance_type ? `<div><strong>Appliance:</strong> ${data.appliance_type}</div>` : "",
+          data.brand ? `<div><strong>Brand:</strong> ${data.brand}</div>` : "",
+          data.city ? `<div><strong>City/ZIP:</strong> ${data.city}</div>` : "",
+          data.issue ? `<div><strong>Issue:</strong> ${data.issue}</div>` : "",
+        ].filter(Boolean).join("");
+      } catch (e) {
+        console.error(e);
+      }
+    });
+  </script>
+</body>
+</html>

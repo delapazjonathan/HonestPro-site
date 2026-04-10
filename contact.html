@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Request Service | HonestPro Appliance Repair</title>
+  <meta name="description" content="Request appliance repair service from HonestPro Appliance Repair for refrigerators, washers, dryers, ovens, dishwashers, and more." />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <div class="site">
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="logo-link" href="index.html"><span class="logo-mark">H</span><span class="logo-text">HonestPro Appliance Repair</span></a>
+        <nav class="site-nav">
+          <a href="index.html">Home</a>
+          <a href="services.html">Services</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Request Service</a>
+        </nav>
+        <button class="mobile-nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="container split-layout">
+          <div class="reveal">
+            <span class="eyebrow">Request service</span>
+            <h1>Tell us about the appliance and the issue.</h1>
+            <p>This page is now set up as a direct service request form for HonestPro Appliance Repair. The form script is cleaned up and ready for you to connect to Formspree, a webhook, or another booking workflow.</p>
+            <div class="card">
+              <h3>What to include</h3>
+              <ul class="info-list">
+                <li>Appliance type</li>
+                <li>Brand and model if available</li>
+                <li>Main symptom or error</li>
+                <li>Your city or ZIP</li>
+                <li>Best way to reach you</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="panel reveal" style="padding: 1.35rem;">
+            <h2>Service request form</h2>
+            <form id="service-request-form" data-endpoint="">
+              <div class="form-grid">
+                <div class="field">
+                  <label for="customer-name">Name</label>
+                  <input id="customer-name" name="name" type="text" required />
+                </div>
+                <div class="field">
+                  <label for="customer-phone">Phone</label>
+                  <input id="customer-phone" name="phone" type="tel" required />
+                </div>
+                <div class="field">
+                  <label for="customer-email">Email</label>
+                  <input id="customer-email" name="email" type="email" />
+                </div>
+                <div class="field">
+                  <label for="customer-city">City or ZIP</label>
+                  <input id="customer-city" name="city" type="text" required />
+                </div>
+                <div class="field">
+                  <label for="appliance-type">Appliance type</label>
+                  <select id="appliance-type" name="appliance_type" required>
+                    <option value="">Select one</option>
+                    <option>Refrigerator</option>
+                    <option>Freezer</option>
+                    <option>Washer</option>
+                    <option>Dryer</option>
+                    <option>Dishwasher</option>
+                    <option>Oven / range</option>
+                    <option>Cooktop</option>
+                    <option>Microwave</option>
+                    <option>Ice maker</option>
+                    <option>Garbage disposal</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="brand">Brand</label>
+                  <input id="brand" name="brand" type="text" placeholder="Example: Whirlpool" />
+                </div>
+                <div class="field-full">
+                  <label for="issue">What is the issue?</label>
+                  <textarea id="issue" name="issue" placeholder="Example: Refrigerator is warm in fresh food section, freezer still cooling, and ice maker stopped working."></textarea>
+                </div>
+              </div>
+              <button class="btn btn-primary btn-full" type="submit">Submit request</button>
+              <p class="form-note">To connect submissions, add your real endpoint to the form's data-endpoint attribute in contact.html.</p>
+              <div class="form-success" id="form-success"></div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div><a class="logo-link" href="index.html"><span class="logo-mark">H</span><span class="logo-text">HonestPro Appliance Repair</span></a></div>
+        <div><h3 class="footer-title">Pages</h3><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Request Service</a></li></ul></div>
+        <div><h3 class="footer-title">Service area</h3><ul class="footer-links"><li>Buda</li><li>Kyle</li><li>South Austin</li><li>San Marcos</li></ul></div>
+      </div>
+    </footer>
+  </div>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/contact-form.js"></script>
+</body>
+</html>
