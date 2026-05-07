@@ -671,3 +671,149 @@ textarea {
     align-items: stretch;
   }
 }
+
+/* ===== REPAIR TIPS PAGE ===== */
+
+.repair-tips-hero {
+  background: radial-gradient(circle at top left, #eef2ff, #ffffff 60%);
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 0.65rem;
+  color: #0d9488;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.section-alt {
+  background: #f1f5f9;
+}
+
+.split-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+  gap: 2rem;
+  align-items: start;
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.section-dark {
+  background: #0f2a44;
+  color: #ffffff;
+}
+
+.section-dark .section-header p,
+.section-dark .stat span {
+  color: #dbeafe;
+}
+
+.topic-card p,
+.cta-banner p,
+.panel p {
+  color: #475569;
+  margin-top: 0.65rem;
+}
+
+.topic-label {
+  display: inline-block;
+  margin-bottom: 0.55rem;
+  color: #0d9488;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.check-list,
+.footer-links {
+  padding-left: 1.15rem;
+  margin-top: 0.85rem;
+}
+
+.check-list li,
+.footer-links li {
+  margin-bottom: 0.55rem;
+}
+
+.soro-panel {
+  min-height: 320px;
+}
+
+.stat {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 1rem;
+  padding: 1.25rem;
+}
+
+.stat strong {
+  display: block;
+  font-size: 1.35rem;
+  margin-bottom: 0.5rem;
+  color: #d4af37;
+}
+
+.cta-banner {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.05);
+}
+
+.cta-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 0.8fr 0.8fr;
+  gap: 2rem;
+}
+
+.footer-title {
+  color: #ffffff;
+  margin-bottom: 0.6rem;
+}
+
+.footer-links a {
+  color: #e2e8f0;
+  text-decoration: none;
+}
+
+@media (max-width: 900px) {
+  .split-layout,
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 720px) {
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-banner,
+  .cta-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
