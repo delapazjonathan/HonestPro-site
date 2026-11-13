@@ -71,3 +71,17 @@ Open `index.html` in a browser, or upload ALL files and directories unchanged to
 - **Google Search Console:** After uploading the complete site, create/verify a Search Console property covering `gethonestpro.com` (domain property preferred where supported). Submit `https://www.gethonestpro.com/sitemap.xml`, inspect the homepage, city hub, and each city page, and monitor indexing and performance. This package does **not** connect Search Console, Analytics, or a Google Business Profile automatically.
 - **Deployment:** Back up the current live site. Upload the full zip contents to the web root, without an extra nested folder. Ensure `https://www.gethonestpro.com/repair-tips.html` works and old URLs still resolve. Confirm `https://gethonestpro.com/` redirects to the canonical `www` version with HTTPS. Test forms (Formspree), bookings (Housecall Pro) and review iframe (Housecall Pro) after deployment.
 - **Quality guardrails:** Do not add city-specific claims such as actual storefront addresses, technician locations, average response time, or completed-job details unless verified. Local search rankings are not guaranteed simply by publishing new city pages. Avoid duplicating city page text at scale; Google warns against doorway pages created only to capture slight geographic query variants.
+
+## Mobile Our Approach overlap repair (Nov 2026)
+
+The screenshot supplied by the owner shows the round gold "No unnecessary upsells" sticker overlapping the explanatory paragraph on narrow screens. The cause is absolute positioning of `.small-gold-sticker` inside `.approach-visual` in `assets/css/styles.css`. At all viewport widths, the updated CSS now places that badge *after* the paragraph in normal document flow, with appropriate spacing. The same premium card design remains, but the badge no longer floats across the text. This is a CSS-only fix; booking links, forms, reviews, SEO metadata and other pages are unchanged.
+
+If the previous version is already deployed, the only changed file needed is `assets/css/styles.css`. Commit this file to a non-production GitHub branch and review the Vercel preview before merging.
+
+## Hours of operation added (Nov 2026)
+
+- Confirmed by owner: Monday–Friday 9:00 AM–9:00 PM; Saturday–Sunday 9:00 AM–2:00 PM (local Central Time).
+- Listed in sitewide footer on every page, the homepage hours banner, booking-page contact card, and repair request sidebar.
+- `Organization.contactPoint.hoursAvailable` in JSON-LD is consistent across pages; it does not claim a street address or 24-hour operation.
+- These are business hours, not a promise of a same-day appointment or guaranteed available Housecall Pro slots.
+- **Changed files for an existing live site:** all `*.html` files and `assets/css/styles.css`. Commit and test in a separate GitHub preview branch before production merge.
